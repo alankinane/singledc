@@ -11,6 +11,8 @@
 <h1>Solution Overview</h1>
 <p>The goal of this template is to provide a relatively simple virtual machine deployment that is cloud-based, offering flexibility and removing the need to run on-premises servers, while maintaining a familiar working environment for end users. You’ll get a virtual machine to act as a domain controller.  The virtual machine will be promoted to a domain controller and set up as a DNS server.  The virtual network will be configured to use the domain controller as the DNS server.  The virtual machine will also be backed up as part of the deployment.</p>
 
+<img src="https://github.com/alankinane/singledc/blob/master/SingleDC.jpg"/>
+
 <h1>Detailed Description</h1>
 <b>Virtual Machines</b>
 
