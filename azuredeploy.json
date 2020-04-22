@@ -41,6 +41,7 @@
     },
     "variables": {
         "storageAccountType": "Standard_LRS",
+        "datadiskstorageAccountType": "StandardSSD_LRS",
         "adPDCVMName": "vm-dc-01",
         "adBDCVMName": "vm-dc-02",
         "nsgName": "nsg-dc-sn",     
@@ -91,7 +92,7 @@
         "adPDCRDPNATRuleID": "[concat(variables('adlbID'),'/inboundNatRules/',variables('adPDCRDPNAT'))]",
         "adBDCRDPNATRuleID": "[concat(variables('adlbID'),'/inboundNatRules/',variables('adBDCRDPNAT'))]",
         "adBEAddressPoolID": "[concat(variables('adlbID'),'/backendAddressPools/',variables('adLBBE'))]",
-        "adDataDiskSize": 32,
+        "adDataDiskSize": 4,
         "vnetTemplateUri": "[concat(variables('_artifactsLocation'),'/nestedtemplates/vnet.json', variables('_artifactsLocationSasToken'))]",
         "nicTemplateUri": "[concat(variables('_artifactsLocation'),'/nestedtemplates/nic.json', variables('_artifactsLocationSasToken'))]",
         "vnetwithDNSTemplateUri": "[concat(variables('_artifactsLocation'),'/nestedtemplates/vnet-with-dns-server.json', variables('_artifactsLocationSasToken'))]",
@@ -315,7 +316,7 @@
                             "lun": 0,
                             "createOption": "Empty",
                             "managedDisk": {
-                                "storageAccountType": "[variables('storageAccountType')]"
+                                "storageAccountType": "[variables('datadiskstorageAccountType')]"
                             }
                         }
                     ]
