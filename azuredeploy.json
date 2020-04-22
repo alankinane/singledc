@@ -279,7 +279,7 @@
         {
             "type": "Microsoft.Compute/virtualMachines",
             "name": "[variables('adPDCVMName')]",
-            "apiVersion": "2017-03-30",
+            "apiVersion": "2018-10-01",
             "location": "[variables('location')]",
             "properties": {
                 "hardwareProfile": {
