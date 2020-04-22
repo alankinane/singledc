@@ -1,4 +1,10 @@
-# singledc
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/raw.githubusercontent.com/alankinane/singledc/master/azuredeploy.json" target="_blank">
+    <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true"/>
+</a>
+<a href="http://armviz.io/#/?load=https://raw.githubusercontent.com/alankinane/singledc/master/azuredeploy.json" target="_blank">
+    <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true"/>
+</a>
+
 <h1>Single Domain Controller to Azure with DC Promo (New Domain Forest)</h1>
 <p>This template deploys an Azure VM and promotes it as a domain controller in a new domain forest.  <u>This template is not suitable if you want to add a new domain controller to an existing domain</u>.</p>
 
