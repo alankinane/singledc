@@ -1,6 +1,7 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
+    "apiProfile": "2018-06-01-profile",
     "parameters": {
         "adminUsername": {
             "defaultValue": "adAdministrator",
@@ -43,7 +44,6 @@
         "storageAccountType": "Standard_LRS",
         "datadiskstorageAccountType": "StandardSSD_LRS",
         "adPDCVMName": "vm-dc-01",
-        "adBDCVMName": "vm-dc-02",
         "nsgName": "nsg-dc-sn",     
         "rsvName": "rsv-dc",   
         "imagePublisher": "MicrosoftWindowsServer",
@@ -54,21 +54,16 @@
         "adLBFE": "LBFrontEnd",
         "adLBBE": "LBBackEnd",
         "adPDCRDPNAT": "rdp-dc-01",
-        "adBDCRDPNAT": "rdp-dc-02",
         "virtualNetworkName": "vnet",
         "virtualNetworkAddressRange": "10.0.0.0/16",
         "adSubnetName": "sn-dc",
         "adSubnet": "10.0.1.0/24",
         "adPDCNicName": "nic-dc-01",
         "adPDCNicIPAddress": "10.0.1.4",
-        "adBDCNicName": "nic-dc-02",
-        "adBDCNicIPAddress": "10.0.1.5",
         "pdcRDPPort": "50001",
-        "bdcRDPPort": "50002",
         "backupFabric": "Azure",
         "backupPolicyName": "DefaultPolicy",
         "protectionContainer1": "[concat('iaasvmcontainer;iaasvmcontainerv2;', resourceGroup().name, ';', variables('adPDCvmName'))]",
-        "protectionContainer2": "[concat('iaasvmcontainer;iaasvmcontainerv2;', resourceGroup().name, ';', variables('adBDCvmName'))]",
         "protectionContainers": 
              [
                    "[variables('protectionContainer1')]"
@@ -90,20 +85,12 @@
         "adlbID": "[resourceId('Microsoft.Network/loadBalancers',variables('adLBName'))]",
         "adlbFEConfigID": "[concat(variables('adlbID'),'/frontendIPConfigurations/',variables('adLBFE'))]",
         "adPDCRDPNATRuleID": "[concat(variables('adlbID'),'/inboundNatRules/',variables('adPDCRDPNAT'))]",
-        "adBDCRDPNATRuleID": "[concat(variables('adlbID'),'/inboundNatRules/',variables('adBDCRDPNAT'))]",
         "adBEAddressPoolID": "[concat(variables('adlbID'),'/backendAddressPools/',variables('adLBBE'))]",
         "adDataDiskSize": 4,
         "vnetTemplateUri": "[concat(variables('_artifactsLocation'),'/nestedtemplates/vnet.json', variables('_artifactsLocationSasToken'))]",
-        "nicTemplateUri": "[concat(variables('_artifactsLocation'),'/nestedtemplates/nic.json', variables('_artifactsLocationSasToken'))]",
         "vnetwithDNSTemplateUri": "[concat(variables('_artifactsLocation'),'/nestedtemplates/vnet-with-dns-server.json', variables('_artifactsLocationSasToken'))]",
-        "configureADBDCTemplateUri": "[concat(variables('_artifactsLocation'),'/nestedtemplates/configureADBDC.json', variables('_artifactsLocationSasToken'))]",
         "adPDCModulesURL": "[concat(variables('_artifactsLocation'),'/DSC/CreateADPDC.zip', variables('_artifactsLocationSasToken'))]",
         "adPDCConfigurationFunction": "CreateADPDC.ps1\\CreateADPDC",
-        "adBDCPreparationModulesURL": "[concat(variables('_artifactsLocation'),'/DSC/PrepareADBDC.zip', variables('_artifactsLocationSasToken'))]",
-        "adBDCPreparationFunction": "PrepareADBDC.ps1\\PrepareADBDC",
-        "adBDCConfigurationModulesURL": "[concat(variables('_artifactsLocation'),'/DSC/ConfigureADBDC.zip', variables('_artifactsLocationSasToken'))]",
-        "adBDCConfigurationFunction": "ConfigureADBDC.ps1\\ConfigureADBDC",
-        "storageAccountType": "Standard_LRS",
         "diagsStorageAccountName": "[concat('sadiags',uniquestring(resourceGroup().id))]"        
     },
     "resources": [
@@ -339,7 +326,7 @@
                 {
                     "type": "extensions",
                     "name": "CreateADForest",
-                    "apiVersion": "2016-03-30",
+                    "apiVersion": "2018-10-01",
                     "location": "[variables('location')]",
                     "properties": {
                         "publisher": "Microsoft.Powershell",
@@ -420,15 +407,14 @@
                 "tier": "Standard"
             },
             "name": "[variables('rsvName')]",
-            "apiVersion": "2016-06-01",
             "location": "[variables('location')]",
             "properties": {},
             "dependsOn": []
         },      
         {
             "type": "Microsoft.RecoveryServices/vaults/backupstorageconfig",
+            "apiVersion": "2019-05-13",
             "name": "[concat(variables('rsvName'), '/vaultstorageconfig')]",
-            "apiVersion": "2018-01-10",
             "dependsOn": [
                 "[resourceId('Microsoft.RecoveryServices/vaults/', variables('rsvName'))]"
             ],
@@ -438,8 +424,8 @@
         },          
         {
             "comments": "Backup DC1",
-            "apiVersion": "2016-12-01",
             "type": "Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems",
+            "apiVersion": "2019-05-13",
             "name": "[concat(variables('rsvName'), '/', variables('backupFabric'), '/', variables('protectionContainers')[copyIndex()], '/', variables('protectedItems')[copyIndex()])]",
             "copy": {
                 "name": "protectedItemsCopy",
