@@ -1,0 +1,42 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "adminUsername": {
+            "defaultValue": "adAdministrator",
+            "type": "String",
+            "metadata": {
+                "description": "The name of the Administrator of the new VM and Domain"
+            }
+        },
+        "adminPassword": {
+            "type": "SecureString",
+            "metadata": {
+                "description": "The password for the Administrator account of the new VM and Domain"
+            }
+        },
+        "domainName": {
+            "type": "String",
+            "metadata": {
+                "description": "The FQDN of the AD Domain created "
+            }
+        },
+        "adVMSize": {
+            "defaultValue": "Standard_B2ms",
+            "type": "String",
+            "allowedValues": 
+                [
+                "Standard_B2ms",
+                "Standard_B2S",
+                "Standard_A2_v2",
+                "Standard_A4_v2",
+                "Standard_DS2_v2",
+                "Standard_D2S_v3",
+                "Standard_D4S_v3"
+                ],            
+            "metadata": {
+                "description": "The size of the VMs to be created"
+            }
+        }
+    }        
+}
