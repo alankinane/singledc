@@ -58,8 +58,8 @@ It is recommended that you also enable Guest-Level Monitoring in Diagnostic Sett
 <p>You will need to have an active Azure subscription in the customer’s tenant and ensure that you have administrative access to this subscription, either Owner or Contributor level access is recommended.</p>
 <p>Make sure to supply the following parameter values:</p>
 
-<b>Resource group name (default: rg-DC):</b> Name of the destination resource group.<br>
-<b>Deployment Location (default: North Europe):</b> Choose as an Azure region for deployment<br>
+<b>Resource group name:</b> Name of the destination resource group.<br>
+<b>Deployment Location:</b> Choose as an Azure region for deployment<br>
 <b>Admin User Name:</b> Provide a legitimate administrator user name for the virtual machine guest operating systems. Note that you cannot use common names such as administrator, admin, root, and so on.<br>
 <b>Admin Password:</b> Enter a password of at least 12 characters, including 3 of the following – upper case, lower case, number, and special character.<br>
 <b>Domain Name:</b> Enter the fully qualified domain name (FQDN) of the domain, required for the DC Promo, e.g. contoso.com<br>
