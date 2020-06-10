@@ -9,7 +9,7 @@
 <p>This template deploys an Azure VM and promotes it as a domain controller in a new domain forest.  <u>This template is not suitable if you want to add a new domain controller to an existing domain</u>.</p>
 
 <h1>Solution Overview</h1>
-<p>The goal of this template is to provide a relatively simple virtual machine deployment that is cloud-based, offering flexibility and removing the need to run on-premises servers, while maintaining a familiar working environment for end users. You’ll get a virtual machine to act as a domain controller.  The virtual machine will be promoted to a domain controller and set up as a DNS server.  The virtual network will be configured to use the domain controller as the DNS server.  The virtual machine will also be backed up as part of the deployment.</p>
+<p>The goal of this template is to provide a relatively simple virtual machine deployment that is cloud-based, offering flexibility and removing the need to run on-premises servers, while maintaining a familiar working environment for end users. You’ll get a virtual machine to act as a domain controller.  The virtual machine will be promoted to a domain controller and set up as a DNS server.  The virtual network will be configured to use the domain controller as the DNS server.  The virtual machine will also be optionally backed up as part of the deployment.</p>
 
 <img src="https://github.com/alankinane/singledc/blob/master/SingleDC.jpg"/>
 
@@ -66,3 +66,4 @@ It is recommended that you also enable Guest-Level Monitoring in Diagnostic Sett
 <b>Admin Password:</b> Enter a password of at least 12 characters, including 3 of the following – upper case, lower case, number, and special character.<br>
 <b>Domain Name:</b> Enter the fully qualified domain name (FQDN) of the domain, required for the DC Promo, e.g. contoso.com<br>
 <b>AD VM Size (default: Standard_B2ms):</b> Pick a series/size for the domain controller.
+<b>Backup Required (default: Yes):</b> Choose if you want to enable backup of the domain controller VM.
