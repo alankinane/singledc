@@ -49,7 +49,7 @@ A network security group has been configured to provide Layer-4 firewall securit
 <b>nsg-dc-sn</b>: Allows port 3389 (TCP) into the subnet via the Load Balancer for admin RDP access to the subnet from the Internet.  <u>It is recommended to lock this down to only allow traffic from your public IP address</u>.
 
 <h1>Management Features</h1>
-<p>A recovery services vault (rsv-dc) is created for backing up the virtual machine using Azure Backup. The deployment will set this up with the below settings.  If you do not require backup then you can choose this option when performing the deployment. <b>It is your own responsibility to make sure this backup is working correctly</b>.</p>
+<p>A recovery services vault (rsv-dc) is created for backing up the virtual machine using Azure Backup. The deployment will set this up with the below settings.  If you do not require backup then you can choose this option when performing the deployment.<br><b>It is your own responsibility to make sure this backup is working correctly</b>.</p>
 
 Backup redundancy set to locally-redundant storage (LRS)
 Domain Controller VM backed up on a 30 day retention backup policy
@@ -66,5 +66,5 @@ It is recommended that you also enable Guest-Level Monitoring in Diagnostic Sett
 <b>Admin User Name:</b> Provide a legitimate administrator user name for the virtual machine guest operating systems. Note that you cannot use common names such as administrator, admin, root, and so on.<br>
 <b>Admin Password:</b> Enter a password of at least 12 characters, including 3 of the following – upper case, lower case, number, and special character.<br>
 <b>Domain Name:</b> Enter the fully qualified domain name (FQDN) of the domain, required for the DC Promo, e.g. contoso.com<br>
-<b>AD VM Size (default: Standard_B2ms):</b> Pick a series/size for the domain controller.
+<b>AD VM Size (default: Standard_B2ms):</b> Pick a series/size for the domain controller.<br>
 <b>Backup Required (default: Yes):</b> Choose if you want to enable backup of the domain controller VM.
