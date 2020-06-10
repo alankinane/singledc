@@ -47,8 +47,9 @@ A basic tier Azure Load Balancer (lb-dc) is deployed as a NAT device, NATing tra
 A network security group has been configured to provide Layer-4 firewall security at the subnet layer:
 
 <b>nsg-dc-sn</b>: Allows port 3389 (TCP) into the subnet via the Load Balancer for admin RDP access to the subnet from the Internet.  <u>It is recommended to lock this down to only allow traffic from your public IP address</u>.
-Management Features
-A recovery services vault (rsv-dc) is created for backing up the virtual machines using Azure Backup. The deployment will set this up with the below settings.  If you do not require backup or which to change these settings then you must perform this post deployment.  <u>It is your own responsibility to make sure this backup is working correctly</u>.
+
+<h1>Management Features</h1>
+<p>A recovery services vault (rsv-dc) is created for backing up the virtual machine using Azure Backup. The deployment will set this up with the below settings.  If you do not require backup then you can choose this option when performing the deployment. <b>It is your own responsibility to make sure this backup is working correctly</b>.</p>
 
 Backup redundancy set to locally-redundant storage (LRS)
 Domain Controller VM backed up on a 30 day retention backup policy
