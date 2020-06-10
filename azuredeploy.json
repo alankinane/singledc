@@ -106,7 +106,6 @@
         "diagsStorageAccountName": "[concat('sadiags',uniquestring(resourceGroup().id))]"        
     },
     "resources": [
-/*
         {
             "name": "[variables('diagsStorageAccountName')]",
             "type": "Microsoft.Storage/storageAccounts",
@@ -412,7 +411,6 @@
                 "[concat('Microsoft.Compute/virtualMachines/', variables('adPDCVMName'),'/extensions/CreateADForest')]"
             ]
         },
-        */
         {
             "comments": "Azure Backup recovery services vault",
             "type": "Microsoft.RecoveryServices/vaults",
