@@ -38,6 +38,18 @@
             "metadata": {
                 "description": "The size of the VMs to be created"
             }
+        },
+        "backupRequired": {
+            "defaultValue": "Yes",
+            "type": "String",
+            "allowedValues": 
+                [
+                "Yes",
+                "No"
+                ],            
+            "metadata": {
+                "description": "Specify if you want the DC VM to be backed up automatically"
+            }
         }
     },
     "variables": {
@@ -94,6 +106,7 @@
         "diagsStorageAccountName": "[concat('sadiags',uniquestring(resourceGroup().id))]"        
     },
     "resources": [
+/*
         {
             "name": "[variables('diagsStorageAccountName')]",
             "type": "Microsoft.Storage/storageAccounts",
@@ -399,6 +412,7 @@
                 "[concat('Microsoft.Compute/virtualMachines/', variables('adPDCVMName'),'/extensions/CreateADForest')]"
             ]
         },
+        */
         {
             "comments": "Azure Backup recovery services vault",
             "type": "Microsoft.RecoveryServices/vaults",
@@ -424,6 +438,7 @@
         },          
         {
             "comments": "Backup DC1",
+            "condition": "[equals(parameters('backupRequired'),'Yes')]",
             "type": "Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems",
             "apiVersion": "2019-05-13",
             "name": "[concat(variables('rsvName'), '/', variables('backupFabric'), '/', variables('protectionContainers')[copyIndex()], '/', variables('protectedItems')[copyIndex()])]",
