@@ -34,7 +34,7 @@ Standard_DS2_v2<br>
 Standard_D2S_v3<br>
 Standard_D4S_v3<br>
 
-The latest available Azure image for Windows Server 2016 Datacenter edition (no Windows Server CALS are required) is deployed in the virtual machines.
+The latest available Azure image for Windows Server 2019 Datacenter edition (no Windows Server CALS are required) is deployed in the virtual machines.
 
 <h1>Networking</h1>
 <p>A virtual network (vnet) is deployed containing one subnet:</p>
