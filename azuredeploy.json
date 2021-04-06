@@ -98,10 +98,10 @@
         "adPDCRDPNATRuleID": "[concat(variables('adlbID'),'/inboundNatRules/',variables('adPDCRDPNAT'))]",
         "adBEAddressPoolID": "[concat(variables('adlbID'),'/backendAddressPools/',variables('adLBBE'))]",
         "adDataDiskSize": 4,
-        "vnetTemplateUri": "[concat(variables('_artifactsLocation'),'/nestedtemplates/vnet.json'",
-        "vnetwithDNSTemplateUri": "[concat(variables('_artifactsLocation'),'/nestedtemplates/vnet-with-dns-server.json')]",
-        "adPDCModulesURL": "[concat(variables('_artifactsLocation'),'/DSC/CreateADPDC.zip')]",
-        "adPDCConfigurationFunction": "CreateADPDC.ps1\\CreateADPDC",
+        "vnetTemplateUri": "https://raw.githubusercontent.com/alankinane/singledc/master/nestedtemplates/vnet.json",
+        "vnetwithDNSTemplateUri": "https://raw.githubusercontent.com/alankinane/singledc/master/nestedtemplates/vnet-with-dns-server.json",
+        "adPDCModulesURL": "https://raw.githubusercontent.com/alankinane/singledc/master/DSC/CreateADPDC.zip",
+        "adPDCConfigurationFunction": "https://raw.githubusercontent.com/alankinane/singledc/master/DSC/CreateADPDC.ps1\\CreateADPDC",
         "diagsStorageAccountName": "[concat('sadiags',uniquestring(resourceGroup().id))]"        
     },
     "resources": [
