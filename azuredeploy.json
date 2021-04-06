@@ -89,8 +89,7 @@
              [
                     "[variables('adPDCVMName')]"
              ],             
-        "_artifactsLocation": "https://mwhtemplates.blob.core.windows.net/templates/1xDC Deploy",
-        "_artifactsLocationSasToken": "?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2030-12-31T23:18:23Z&st=2018-12-17T15:18:23Z&spr=https&sig=AWDsc6N5NpvMIVXS96T7kzadAEHl7WOKMu8T4%2B1MjcY%3D",
+        "_artifactsLocation": "https://raw.githubusercontent.com/alankinane/singledc",
         "location": "[resourceGroup().location]",
         "adSubnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('adSubnetName'))]",
         "adLBName": "lb-dc",
@@ -99,9 +98,9 @@
         "adPDCRDPNATRuleID": "[concat(variables('adlbID'),'/inboundNatRules/',variables('adPDCRDPNAT'))]",
         "adBEAddressPoolID": "[concat(variables('adlbID'),'/backendAddressPools/',variables('adLBBE'))]",
         "adDataDiskSize": 4,
-        "vnetTemplateUri": "[concat(variables('_artifactsLocation'),'/nestedtemplates/vnet.json', variables('_artifactsLocationSasToken'))]",
-        "vnetwithDNSTemplateUri": "[concat(variables('_artifactsLocation'),'/nestedtemplates/vnet-with-dns-server.json', variables('_artifactsLocationSasToken'))]",
-        "adPDCModulesURL": "[concat(variables('_artifactsLocation'),'/DSC/CreateADPDC.zip', variables('_artifactsLocationSasToken'))]",
+        "vnetTemplateUri": "[concat(variables('_artifactsLocation'),'/nestedtemplates/vnet.json'",
+        "vnetwithDNSTemplateUri": "[concat(variables('_artifactsLocation'),'/nestedtemplates/vnet-with-dns-server.json')]",
+        "adPDCModulesURL": "[concat(variables('_artifactsLocation'),'/DSC/CreateADPDC.zip')]",
         "adPDCConfigurationFunction": "CreateADPDC.ps1\\CreateADPDC",
         "diagsStorageAccountName": "[concat('sadiags',uniquestring(resourceGroup().id))]"        
     },
