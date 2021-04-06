@@ -89,7 +89,7 @@
              [
                     "[variables('adPDCVMName')]"
              ],             
-        "_artifactsLocation": "https://raw.githubusercontent.com/alankinane/singledc",
+        "_artifactsLocation": "https://raw.githubusercontent.com/alankinane/singledc/master",
         "location": "[resourceGroup().location]",
         "adSubnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('adSubnetName'))]",
         "adLBName": "lb-dc",
