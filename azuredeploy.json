@@ -101,7 +101,7 @@
         "vnetTemplateUri": "https://raw.githubusercontent.com/alankinane/singledc/master/nestedtemplates/vnet.json",
         "vnetwithDNSTemplateUri": "https://raw.githubusercontent.com/alankinane/singledc/master/nestedtemplates/vnet-with-dns-server.json",
         "adPDCModulesURL": "https://raw.githubusercontent.com/alankinane/singledc/master/DSC/CreateADPDC.zip",
-        "adPDCConfigurationFunction": "https://raw.githubusercontent.com/alankinane/singledc/master/DSC/CreateADPDC.ps1\\CreateADPDC",
+        "adPDCConfigurationFunction": "CreateADPDC.ps1\\CreateADPDC",
         "diagsStorageAccountName": "[concat('sadiags',uniquestring(resourceGroup().id))]"        
     },
     "resources": [
